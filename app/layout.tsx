@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import { AnalyticsConsent } from "@/components/analytics-consent";
 import { Footer, Header } from "@/components/site";
-import { canIndex, site } from "@/lib/site";
+import { canIndex, measurementId, site } from "@/lib/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -19,6 +20,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <a href="#content" className="skip-link">Skip to content</a>
     <Header />
     <main id="content">{children}</main>
+    {measurementId && <AnalyticsConsent measurementId={measurementId} />}
     <Footer />
   </body></html>;
 }
