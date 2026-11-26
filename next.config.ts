@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const config: NextConfig = {
+  agentRules: false,
   poweredByHeader: false,
   async headers() {
     return [{
@@ -11,7 +12,14 @@ const config: NextConfig = {
         { key: "X-Frame-Options", value: "DENY" },
         { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
       ],
-    }];
+    }, ...["/sales", "/booking", "/marketing-preferences", "/api/sales/:path*"].map((source) => ({
+      source,
+      headers: [
+        { key: "Cache-Control", value: "private, no-store" },
+        { key: "Referrer-Policy", value: "no-referrer" },
+        { key: "X-Robots-Tag", value: "noindex, nofollow" },
+      ],
+    }))];
   },
 };
 

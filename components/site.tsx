@@ -2,22 +2,37 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { MobileNav } from "@/components/mobile-nav";
-import { discoveryLabel, framework, instagram, offers, professionalEmail, projects, services, site, vatNote, youtube } from "@/lib/site";
+import { acquisitionEnabled, adsId, attributionEnabled, gtmId, metaPixelId } from "@/lib/sales-config";
+import { acceleratorPhases, businessProfile, consultancyPricing, discoveryLabel, instagram, linkedIn, measurementId, multipliers, offers, professionalEmail, projects, services, site, vatNote, youtube } from "@/lib/site";
 
 export function Brand() {
   return <Link href="/" className="brand">
     <Image src="/cgf-logo.svg" width={78} height={27} alt="" unoptimized />
-    <span>Gavin Ferns <small>Coaching & Consulting</small></span>
+    <span>{site.shortName}</span>
   </Link>;
 }
 
 const navigation = [
   { href: "/about", label: "About" },
   { href: "/#services", label: "Services" },
+  { href: "/business-growth-calculator", label: "Calculator" },
   { href: "/premium-programmes", label: "Programmes" },
-  { href: "/case-studies", label: "Case Studies" },
+  { href: "/case-studies", label: "Portfolio" },
   { href: "/insights", label: "Insights" },
 ];
+
+export function discoveryHref(campaign?: string) {
+  if (!acquisitionEnabled) return "/contact";
+  return campaign ? `/apply?campaign=${encodeURIComponent(campaign)}` : "/apply";
+}
+
+function DiscoveryLink({ className, label = discoveryLabel, campaign }: { className: string; label?: string; campaign?: string }) {
+  const href = discoveryHref(campaign);
+  // A fresh document keeps third-party measurement scripts out of the application form.
+  return acquisitionEnabled
+    ? <a className={className} href={href}>{label}</a>
+    : <Link className={className} href={href}>{label}</Link>;
+}
 
 export function Header() {
   return <header className="site-header">
@@ -26,30 +41,32 @@ export function Header() {
       <nav className="desktop-nav" aria-label="Main">
         {navigation.map(({ href, label }) => <Link key={href} href={href}>{label}</Link>)}
       </nav>
-      <Link className="button button-small header-cta" href="/contact">Book a Discovery Call <span className="arrow" aria-hidden="true" /></Link>
-      <MobileNav links={[...navigation, { href: "/contact", label: discoveryLabel }]} />
+      <DiscoveryLink className="button button-small header-cta" />
+      <MobileNav links={[...navigation, { href: discoveryHref(), label: discoveryLabel }]} />
     </div>
   </header>;
 }
 
-export function DiscoveryButton() {
-  return <Link className="button" href="/contact">{discoveryLabel} <span className="arrow" aria-hidden="true" /></Link>;
+export function DiscoveryButton({ label, campaign }: { label?: string; campaign?: string } = {}) {
+  return <DiscoveryLink className="button" label={label} campaign={campaign} />;
 }
 
 export function Footer() {
   return <footer className="footer">
     <div className="container">
       <div className="footer-grid">
-        <div><Brand /><p>Clarity. Strategy. Transformation.</p></div>
-        <div><h2>Explore</h2><Link href="/about">About Gavin</Link><Link href="/premium-programmes">Premium Programmes</Link><Link href="/case-studies">Case Studies</Link><Link href="/insights">Insights & Video Resources</Link></div>
+        <div><Brand /><p>{site.tagline}</p></div>
+        <div><h2>Explore</h2><Link href="/about">About Gavin</Link><Link href="/premium-programmes">Premium Consulting Programmes</Link><Link href="/case-studies">Portfolio and Case Studies</Link><Link href="/insights">Insights and Resources</Link><Link href="/brand-pack">Brand Pack</Link></div>
         <div><h2>Connect</h2><Link href="/contact">Contact</Link><a href={site.telephoneHref}>{site.telephone}</a>
           {professionalEmail && <a href={`mailto:${professionalEmail}`}>{professionalEmail}</a>}
           <a href={site.whatsapp}>WhatsApp</a>
           {instagram && <a href={instagram}>Instagram</a>}
           {youtube && <a href={youtube}>YouTube</a>}
+          {linkedIn && <a href={linkedIn}>LinkedIn</a>}
+          {businessProfile && <a href={businessProfile}>Google Business Profile</a>}
         </div>
       </div>
-      <div className="footer-bottom"><span>© {new Date().getUTCFullYear()} {site.name}</span><Link href="/privacy-policy">Privacy Policy</Link></div>
+      <div className="footer-bottom"><span>© {new Date().getUTCFullYear()} {site.name}</span><div className="footer-privacy"><Link href="/privacy-policy">Privacy Policy</Link>{(measurementId || gtmId || metaPixelId || adsId || attributionEnabled) && <Link href="#analytics-settings">Tracking settings</Link>}</div></div>
     </div>
   </footer>;
 }
@@ -82,33 +99,45 @@ export function ProjectCards() {
   </div>;
 }
 
-export function Framework() {
-  return <ol className="framework-grid">
-    {framework.map((step) => <li key={step.name}>
-      <span className="framework-letter" aria-hidden="true">{step.name[0]}</span>
-      <h3>{step.name}</h3><p>{step.description}</p>
-    </li>)}
-  </ol>;
+export function GrowthMethod({ heading = "Three Multipliers of Growth", linkToMethod = false }: { heading?: string; linkToMethod?: boolean }) {
+  return <section className="section section-tint">
+    <div className="container">
+      <SectionTitle title={heading}>Customer acquisition is one lever. Repeat purchases and order value can also increase revenue from the customers you already serve.</SectionTitle>
+      <p className="growth-formula">Revenue = Customers × Purchase Frequency × Average Order Value</p>
+      <div className="service-grid">
+        {multipliers.map((multiplier) => <article key={multiplier.name} className="service-card">
+          <h3>{multiplier.name}</h3><p>{multiplier.description}</p>
+          <ul className="tactics">{multiplier.tactics.map((tactic) => <li key={tactic}>{tactic}</li>)}</ul>
+        </article>)}
+      </div>
+      <p className="subcopy">Compare each opportunity against gross margin, operating costs and what your team can realistically implement before committing to it.</p>
+      <div className="actions">
+        <Link className="button" href="/business-growth-calculator">Calculate Your Growth Potential</Link>
+        {linkToMethod && <Link className="text-link" href="/three-multipliers-of-growth">Explore the methodology <span className="arrow" aria-hidden="true" /></Link>}
+      </div>
+    </div>
+  </section>;
 }
 
 export function OfferCard({ offer }: { offer: (typeof offers)[number] }) {
   return <article id={offer.id} className={`offer-card ${offer.id === "transformation" ? "signature" : ""}`}>
-    {offer.id === "transformation" && <p className="eyebrow">Signature offer</p>}
-    <h2>{offer.name}</h2>
+    <h3>{offer.name}</h3>
     <p className="price">{offer.price}</p><p className="duration">{offer.duration}</p>
     <dl>
       <dt>Who it’s for</dt><dd>{offer.audience}</dd>
       <dt>Scope</dt><dd>{offer.scope}</dd>
       <dt>Deliverables</dt><dd>{offer.deliverables}</dd>
+      {offer.id === "transformation" && <><dt>Three programme phases</dt><dd><ol className="tactics">{acceleratorPhases.map((phase) => <li key={phase}>{phase}</li>)}</ol></dd></>}
       <dt>Intended outcome</dt><dd>{offer.outcome}</dd>
     </dl>
+    <DiscoveryButton />
   </article>;
 }
 
 export function Callout() {
   return <section className="callout">
     <div className="container callout-inner">
-      <div><h2>What do you want to change?</h2><p>Bring one challenge. We’ll discuss what a good next step could look like.</p></div>
+      <div><h2>What do you want to change?</h2><p>Bring one challenge. We’ll discuss what a good next step could look like.</p><p>{consultancyPricing}</p></div>
       <DiscoveryButton />
     </div>
   </section>;
