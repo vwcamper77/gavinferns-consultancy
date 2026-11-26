@@ -5,10 +5,10 @@ import { trackPublic } from "@/lib/acquisition-browser";
 import { calculateGrowth } from "@/lib/growth";
 
 const fields = [
-  { name: "turnover", label: "Current annual turnover", unit: "£", min: 0.01 },
-  { name: "customers", label: "Increase in customer numbers", unit: "%", min: 0 },
-  { name: "frequency", label: "Increase in purchase frequency", unit: "%", min: 0 },
-  { name: "orderValue", label: "Increase in average order value", unit: "%", min: 0 },
+  { name: "turnover", label: "Current annual turnover", unit: "£", min: 0.01, max: 1e12 },
+  { name: "customers", label: "Increase in customer numbers", unit: "%", min: 0, max: 1000 },
+  { name: "frequency", label: "Increase in purchase frequency", unit: "%", min: 0, max: 1000 },
+  { name: "orderValue", label: "Increase in average order value", unit: "%", min: 0, max: 1000 },
 ] as const;
 
 const currency = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP", minimumFractionDigits: 0, maximumFractionDigits: 2 });
@@ -29,7 +29,7 @@ export function GrowthCalculator({ discovery }: { discovery: React.ReactNode }) 
       <div className="calculator-inputs">
         {fields.map((field) => <label key={field.name} htmlFor={`growth-${field.name}`}>
           {field.label} ({field.unit})
-          <input id={`growth-${field.name}`} type="number" inputMode="decimal" min={field.min} step="any"
+          <input id={`growth-${field.name}`} type="number" inputMode="decimal" min={field.min} max={field.max} step="any"
             value={inputs[field.name]} onChange={(event) => {
               setInputs({ ...inputs, [field.name]: event.target.value });
               if (!interactionRecorded.current) interactionRecorded.current = trackPublic("calculator_interaction");
@@ -38,7 +38,7 @@ export function GrowthCalculator({ discovery }: { discovery: React.ReactNode }) 
       </div>
     </fieldset>
     <div className="calculator-panel calculator-results">
-      <h2>Projected annual turnover</h2>
+      <h2>Illustrative annual turnover</h2>
       <div role="status" aria-atomic="true">
         {result ? <>
           <p className="price">{currency.format(result.projected)}</p>
@@ -50,10 +50,10 @@ export function GrowthCalculator({ discovery }: { discovery: React.ReactNode }) 
             <figcaption>Annual turnover comparison</figcaption>
             <div className="bar-label"><span>Current</span><strong>{currency.format(current)}</strong></div>
             <div className="bar-track" aria-hidden="true"><span style={{ width: `${current / result.projected * 100}%` }} /></div>
-            <div className="bar-label"><span>Projected</span><strong>{currency.format(result.projected)}</strong></div>
+            <div className="bar-label"><span>Illustrative</span><strong>{currency.format(result.projected)}</strong></div>
             <div className="bar-track projected" aria-hidden="true"><span /></div>
           </figure>
-        </> : <p>Enter a positive turnover and three non-negative percentage increases to see a projection.</p>}
+        </> : <p>Enter a positive turnover and three non-negative percentage increases (up to 1,000% each) to see a scenario. Turnover must be £1 trillion or less.</p>}
       </div>
       <p className="fine-print">Illustrative revenue scenario only. It is neither a guarantee nor a profit forecast. Costs, margins and implementation can change the outcome.</p>
       {discovery}

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   verification: canIndex ? { google: process.env.GOOGLE_SITE_VERIFICATION } : undefined,
   openGraph: { type: "website", locale: "en_GB", siteName: site.name, images: ["/social-card.jpg"] },
   twitter: { card: "summary_large_image", images: ["/social-card.jpg"] },
-  icons: { icon: "/cgf-logo.svg" },
+  icons: { icon: [{ url: "/gfc-logo.svg", type: "image/svg+xml" }, { url: "/favicon.ico", sizes: "32x32" }], apple: "/apple-touch-icon.png" },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

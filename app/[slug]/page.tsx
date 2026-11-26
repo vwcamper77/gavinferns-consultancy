@@ -8,7 +8,7 @@ import { CaseStudyCards } from "@/components/case-studies";
 import { BrandPackAssets, BrandPackDownloads } from "@/components/brand-pack";
 import { DiscoveryForm } from "@/components/discovery-form";
 import { acquisitionEnabled, adsId, attributionEnabled, gtmId, metaPixelId } from "@/lib/sales-config";
-import { bookingProvider, bookingUrl, consultancyPricing, measurementId, offers, pages, professionalEmail, programmeFaqs, routes, services, site, specialistEngagements, specialistPricing, youtube } from "@/lib/site";
+import { academicCapabilities, experiencePillars, innovationCapabilities, positioning, bookingProvider, bookingUrl, consultancyPricing, measurementId, offers, pages, professionalEmail, programmeFaqs, routes, services, site, specialistEngagements, specialistPricing, youtube } from "@/lib/site";
 
 type PageProps = { params: Promise<{ slug: string }> };
 
@@ -48,9 +48,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 function About() {
   return <>
     <section className="section container reading">
-      <h2>Experience behind the advice</h2>
-      <p>Gavin works with business owners and leaders as a business coach, strategic consultant and programme and transformation leader. His approach combines practical coaching and mentoring with more than 20 years delivering complex projects and programmes.</p>
-      <p>Gavin holds an Executive MBA from Imperial College. His corporate roles in rail, construction and infrastructure included senior programme and project management, overseeing a £200 million portfolio for Hitachi Rail and leading the £102 million Borough Viaduct project for Network Rail. His consulting approach also draws on technology development, entrepreneurship, process optimisation, marketing technology and automation.</p>
+      <h2>Business expertise. Practical action.</h2>
+      {positioning.biography.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+      <h2>Academic business expertise</h2>
+      <p>Executive MBA, Imperial College Business School. Innovation is the major; AI, Machine Learning, Entrepreneurship and Venture Capital are modules within the MBA.</p>
+      {academicCapabilities.map(({ title, description }) => <div className="biography-pillar" key={title}><h3>{title}</h3><p>{description}</p></div>)}
+      {experiencePillars.map(({ title, description }) => <div className="biography-pillar" key={title}><h2>{title}</h2><p>{description}</p></div>)}
       <Link className="text-link" href="/case-studies">Explore Gavin’s programme experience <span className="arrow" aria-hidden="true" /></Link>
     </section>
     <GrowthMethod linkToMethod />
@@ -162,6 +165,7 @@ export default async function DetailPage({ params }: PageProps) {
       </section>
       <section className="section container">
         <SectionTitle title="Specialist consulting">These capabilities can form part of a programme or be commissioned separately. {specialistPricing}</SectionTitle>
+        <p className="subcopy">{innovationCapabilities}</p>
         <div className="service-grid">
           {specialistEngagements.map(({ id, slug, name, summary }) => <Link id={id} key={id} href={`/${slug}`} className="service-card">
             <h3>{name}</h3><p>{summary}</p>

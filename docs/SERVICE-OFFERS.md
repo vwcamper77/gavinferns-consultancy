@@ -2,7 +2,7 @@
 
 The website offer cards in [lib/site.ts](../lib/site.ts) hold the detailed scope, deliverables and intended outcomes.
 
-Consulting engagements from £3,000. Discovery informs the scope, intended commercial outcomes and investment.
+Private consulting engagements from £3,000. Discovery informs the scope, intended commercial outcomes and investment.
 
 | Consulting route | Investment | Term | Core deliverable |
 | --- | --- | --- | --- |

@@ -14,8 +14,8 @@ test("profitability campaign renders across viewports and other campaigns are in
   const page = await browser.newPage();
   await page.goto(baseURL + "/campaign/profitability");
   await page.getByRole("heading", { name: "Build a more profitable business. Not just a bigger one." }).waitFor();
-  await page.locator(".page-hero").getByText("Consulting engagements from £3,000.", { exact: false }).waitFor();
-  assert.match(await page.locator('meta[name="description"]').getAttribute("content"), /Consulting engagements from £3,000\./);
+  await page.locator(".page-hero").getByText("Private consulting engagements from £3,000.", { exact: false }).waitFor();
+  assert.match(await page.locator('meta[name="description"]').getAttribute("content"), /Private consulting engagements from £3,000\./);
   const cta = page.getByRole("link", { name: "Start your profitability application" }).first();
   assert.equal(await cta.getAttribute("href"), enabled ? "/apply?campaign=profitability" : "/contact");
   for (const width of [320, 768, 1440]) {

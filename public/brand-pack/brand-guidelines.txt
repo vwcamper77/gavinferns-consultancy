@@ -1,0 +1,76 @@
+GFC — Gavin Ferns Consulting brand guidelines
+
+Identity and names
+G = Gavin. F = Ferns. C = Coaching or Consulting.
+Personal brand: Gavin Ferns.
+Business advisory: Gavin Ferns Consulting. Coaching: Gavin Ferns Coaching.
+Full name: Gavin Ferns Business Consulting and Coaching.
+Keep existing social handles; the initials do not change account names.
+
+Logo
+The approved mark is three horizontally aligned, filled blue hexagons,
+with G, F, C in that order. Preserve geometry, letter size and proportions.
+Logo type: Arial Bold, 16 units in the original 104 x 36 viewBox.
+Clear space: at least 9/36 of the mark height on all sides, including lockups.
+Minimum mark width: 78 px digital or 25 mm print. Minimum full lockup:
+300 px digital or 80 mm print. Increase size if the name is hard to read.
+Use gfc-logo.svg for the scalable original mark; 4800 px PNG for large exports.
+Use transparent logos over clear backgrounds with sufficient contrast.
+Light lockup: light or white surfaces. Dark lockup: navy surfaces.
+White reversed mark: dark, uncluttered surfaces only. Single-colour: navy
+on light backgrounds. The reversed mark has transparent letter cutouts.
+Correct: uniform scaling, clear space, approved blues, readable lettering.
+Incorrect: stretch, rotate, stack, reorder letters, recolour individual
+hexagons, add shadows or gradients, crop or place on busy photographs.
+
+Approved colours (sRGB HEX)
+Hexagon one #2772EC; hexagon two #1E5FD2; hexagon three #174AAA.
+Navy #07172D; Ink #0C1B32; Action blue #1559CC; Sky #8BBAFF;
+Light tint #F3F7FC; White #FFFFFF.
+Do not replace the three approved hexagon blues with the action blue.
+
+Typography
+Arial Bold for headings and brand name; Arial Regular for body copy.
+Website fallback stack: Arial, Helvetica, sans-serif.
+Export rendering uses Liberation Sans, an Arial-metric-compatible fallback.
+SVG lockups retain Arial with sans-serif fallback; text remains editable.
+Use readable body sizes, clear hierarchy and high-contrast text.
+
+Social artwork and safe areas (platform crops can change)
+Profile images: 1080 x 1080. Keep the mark in the central 620 x 620 square
+for circular crops. Applies to Instagram, Facebook, LinkedIn and YouTube.
+Instagram feed: 1080 x 1080 and 1080 x 1350; keep key content 90 px inside.
+Story and Reel: 1080 x 1920. Keep key content within x=90..990 and
+y=268..1634. Preview in-app because controls and feed crops vary.
+Facebook cover: 1640 x 624. Key content in central 1200 x 400; preview
+on mobile and desktop and avoid profile-picture overlap in lower left.
+LinkedIn banner: 1584 x 396. Text and logo in x=450..1484, y=60..320,
+clear of the profile picture at lower left.
+YouTube channel: 2560 x 1440; all essential content within the centred
+1546 x 423 safe area (x=507..2053, y=508..931).
+Open Graph: 1200 x 630. Keep essential copy 76 px inside the edges.
+Templates are editable SVG where supplied; replace placeholder headings
+before use, and check safe areas against current platform previews.
+
+Documents and email
+Presentation and proposal covers: 1920 x 1080, PNG and editable SVG.
+Proposal letterhead: 1240 x 1754, PNG and editable SVG; keep document
+body below y=300 and above y=1550. Add terms and client details separately.
+Email signature: HTML plus a transparent 600 x 180 logo. The HTML uses
+a public HTTPS image and the verified website only; no unverified mailbox.
+
+Messaging and tone
+Build a more profitable business. Not just a bigger one.
+Lead with business coaching, strategic consulting and practical action.
+Be clear, commercially focused, evidence-led and approachable. Explain
+revenue and profit separately. Use the Three Multipliers of Growth:
+Revenue = Customers x Purchase Frequency x Average Order Value.
+Private consulting engagements from £3,000. Agree scope before quoting;
+do not publish internal pricing ranges or imply guaranteed results.
+Executive MBA from Imperial College Business School, majoring in Innovation.
+AI, Machine Learning, Entrepreneurship and Venture Capital are MBA modules,
+not separate degrees or certifications. Do not imply university endorsement
+or use its official logo. Corporate project values are experience, not
+consulting revenue. Use only cleared case studies and evidenced claims.
+
+gavinferns.com

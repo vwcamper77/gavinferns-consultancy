@@ -4,7 +4,7 @@ Keep account identifiers, exports and access records in approved private storage
 
 | Asset | Status | Recovery or verification |
 | --- | --- | --- |
-| Original CGF mark | Missing. A temporary SVG based on the three-blue-hexagon brief is included. | Search authorised Drive, historic web files and design folders. Obtain the original vector and confirm rights. |
+| Approved GFC mark | Existing horizontal three-blue-hexagon design approved by Gavin in the November 2026 brief; lettering updated to G–F–C without changing geometry or colours. | Reproducible SVG, PNG, social and document assets in the brand pack. Historical CGF identity retained in Git history. |
 | Professional photos and project imagery | No approved imagery provided. Homepage uses typography and an illustrative growth scenario. | Request cleared photographs and retain rights and attribution details. |
 | Original website and URLs | Unrecovered. The current site was unreachable from this cloud environment. | Recover hosting exports, sitemap and backups or review an authorised archive. Record usable copy and existing URLs for redirect mapping. |
 | Template CONSULTING AGREEMENT.docx | Original unavailable. | Recover in restricted storage and request legal review of the reported restrictive provisions before reuse. |

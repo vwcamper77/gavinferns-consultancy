@@ -282,3 +282,15 @@ button:disabled { cursor: wait; opacity: .65; }
 .case-study-result { padding: clamp(1.25rem, 3vw, 2rem); background: var(--tint); border-left: 4px solid var(--blue); }
 .case-study-result p + p { margin-top: .9rem; }
 .case-study-download { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+
+/* GFC credibility and commercial context */
+.hero-background { margin-top: 1.1rem; color: #dce7f7; font-size: 1rem; max-width: 35rem; }
+.proof-grid { grid-template-columns: 1fr; padding-block: .8rem; }
+.proof-grid div { padding: 1rem 0; border-left: 0; border-top: 1px solid #385172; }
+.proof-grid strong { font-size: 1.2rem; letter-spacing: -.02em; }
+.proof-grid span { font-size: .9rem; }
+.biography-pillar { margin-top: 2rem; }
+.biography-pillar p { margin-top: .8rem; }
+.commercial-grid { margin-top: 1.5rem; }
+@media (min-width: 40rem) { .proof-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 1.5rem; } }
+@media (min-width: 66rem) { .proof-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1rem; } .proof-grid div { border-top: 0; } }

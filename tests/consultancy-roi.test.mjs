@@ -29,3 +29,25 @@ test("rejects invalid and non-finite scenarios", () => {
     assert.equal(calculateConsultancyRoi(...inputs), null);
   }
 });
+
+test("deducts operating costs once and includes implementation in ROI and payback", () => {
+  const result = calculateConsultancyRoi(500000, 40, 2, 3000, 150000, 2000);
+  assert.equal(result.currentGrossProfit, 200000);
+  assert.equal(result.currentProfit, 50000);
+  assert.equal(result.improvedProfit, 60000);
+  assert.equal(result.additionalProfit, 10000);
+  assert.equal(result.totalInvestment, 5000);
+  assert.equal(result.netReturn, 5000);
+  assert.equal(result.roi, 100);
+  assert.equal(result.paybackMonths, 6);
+});
+
+test("rejects invalid costs and out-of-range margins without hiding loss-making businesses", () => {
+  for (const costs of [-1, Infinity, NaN, 1e13]) {
+    assert.equal(calculateConsultancyRoi(500000, 40, 2, 3000, costs), null);
+    assert.equal(calculateConsultancyRoi(500000, 40, 2, 3000, 0, costs), null);
+  }
+  assert.equal(calculateConsultancyRoi(500000, -101, 2, 3000), null);
+  assert.equal(calculateConsultancyRoi(500000, 101, 0, 3000), null);
+  assert.equal(calculateConsultancyRoi(500000, 10, 2, 3000, 100000).improvedProfit, -40000);
+});

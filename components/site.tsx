@@ -3,11 +3,11 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { MobileNav } from "@/components/mobile-nav";
 import { acquisitionEnabled, adsId, attributionEnabled, gtmId, metaPixelId } from "@/lib/sales-config";
-import { acceleratorPhases, businessProfile, consultancyPricing, discoveryLabel, instagram, linkedIn, measurementId, multipliers, offers, professionalEmail, projects, services, site, vatNote, youtube } from "@/lib/site";
+import { acceleratorPhases, commercialConsiderations, businessProfile, consultancyPricing, discoveryLabel, instagram, linkedIn, measurementId, multipliers, offers, professionalEmail, projects, services, site, vatNote, youtube } from "@/lib/site";
 
 export function Brand() {
   return <Link href="/" className="brand">
-    <Image src="/cgf-logo.svg" width={78} height={27} alt="" unoptimized />
+    <Image src="/gfc-logo.svg" width={78} height={27} alt="" unoptimized />
     <span>{site.shortName}</span>
   </Link>;
 }
@@ -110,7 +110,8 @@ export function GrowthMethod({ heading = "Three Multipliers of Growth", linkToMe
           <ul className="tactics">{multiplier.tactics.map((tactic) => <li key={tactic}>{tactic}</li>)}</ul>
         </article>)}
       </div>
-      <p className="subcopy">Compare each opportunity against gross margin, operating costs and what your team can realistically implement before committing to it.</p>
+      <p className="subcopy">Revenue growth and profitability are different measures. Test the Three Multipliers against the economics and capacity of your business.</p>
+      <div className="service-grid commercial-grid">{commercialConsiderations.map(({ title, description }) => <article className="service-card" key={title}><h3>{title}</h3><p>{description}</p></article>)}</div>
       <div className="actions">
         <Link className="button" href="/business-growth-calculator">Calculate Your Growth Potential</Link>
         {linkToMethod && <Link className="text-link" href="/three-multipliers-of-growth">Explore the methodology <span className="arrow" aria-hidden="true" /></Link>}

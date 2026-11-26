@@ -1,5 +1,5 @@
 export function calculateGrowth(turnover: number, customers: number, frequency: number, orderValue: number) {
-  if (![turnover, customers, frequency, orderValue].every((value) => Number.isFinite(value) && value >= 0) || turnover === 0) {
+  if (![turnover, customers, frequency, orderValue].every((value) => Number.isFinite(value) && value >= 0) || turnover === 0 || turnover > 1e12 || [customers, frequency, orderValue].some((value) => value > 1000)) {
     return null;
   }
 

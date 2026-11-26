@@ -39,7 +39,7 @@ export const measurementId = configuredMeasurementId && /^G-[A-Z0-9]+$/.test(con
 export const instagram = process.env.SITE_INSTAGRAM_VERIFIED === "true" ? site.instagram : undefined;
 export const youtube = process.env.SITE_YOUTUBE_VERIFIED === "true" ? site.youtube : undefined;
 
-export const discoveryLabel = "Start your discovery brief";
+export const discoveryLabel = "Start Your Discovery Brief";
 export const vatNotes = {
   inclusive: "Prices include VAT.",
   exclusive: "Prices exclude VAT.",
@@ -61,9 +61,9 @@ export const multipliers = [
 ];
 
 export const acceleratorPhases = [
-  "Discovery and Growth Audit",
-  "Strategic Implementation and Execution",
-  "Review, Optimisation and Scaling",
+  "Discovery and commercial assessment",
+  "Strategy development and implementation",
+  "Performance review, optimisation and scaling",
 ];
 
 export const offers = [
@@ -71,14 +71,14 @@ export const offers = [
     id: "strategy", name: "Business Growth & Profitability Review", price: `From ${consultancyStartingPrice}`, duration: "Four weeks",
     audience: "Business owners who want to understand what is driving profit and where to focus next.",
     scope: "Review pricing, margins, operating costs and the mix of customers, products or services to identify where the business earns and loses profit.",
-    deliverables: "A commercial diagnostic, private strategy sessions and a prioritised 90-day roadmap with measures for tracking progress.",
+    deliverables: "A business diagnostic, financial and profitability assessment, market and competitor review, business model analysis, growth and cost reduction opportunities, private coaching and strategy sessions, and a prioritised 90-day roadmap.",
     outcome: "A clear view of the opportunities to improve profitability and a practical sequence for acting on them.",
   },
   {
     id: "transformation", name: "90-Day Profitability & Growth Programme", price: "Investment tailored to your business", duration: "90 days",
     audience: "Established owners and leadership teams ready to implement changes and measure their commercial impact.",
     scope: "Apply the Three Multipliers of Growth alongside pricing, margin and cost analysis. Prioritise and implement changes across marketing, sales and operations.",
-    deliverables: "Discovery and growth audit reports, baseline profit and growth measures, implementation support, regular performance reviews and a 6–12 month roadmap.",
+    deliverables: "Baseline commercial KPIs, a growth and profitability audit, acquisition and retention strategies, average order value optimisation, a pricing and cost review, marketing technology recommendations, operational improvement, implementation support, performance reporting and a longer-term roadmap.",
     outcome: "A set of tested changes and evidence about what to refine, continue or scale.",
   },
   {
@@ -139,12 +139,12 @@ export const services = [
 export const pages = {
   "three-multipliers-of-growth": { title: "Three Multipliers of Growth", summary: "Improve customer numbers, purchase frequency and average order value while protecting margins." },
   "business-growth-calculator": { title: "Business Growth Calculator", summary: "Explore how changes in customer numbers, purchase frequency and average order value combine to affect turnover." },
-  about: { title: "About Gavin", summary: "Business coach, strategic consultant and programme transformation leader." },
+  about: { title: "About Gavin", summary: "Business coach, strategic consultant and innovation specialist. Executive MBA from Imperial College Business School, with over 20 years of professional experience." },
   "premium-programmes": { title: "Premium Consulting Programmes", summary: "Private consulting for business owners and leadership teams who want to improve margins, make better investment decisions and grow profitably." },
   "case-studies": { title: "Portfolio and Case Studies", summary: "Client work in business growth, digital learning, AI and location development, alongside Gavin’s rail programme experience." },
   insights: { title: "Insights and Resources", summary: "Practical questions for leaders working through growth and transformation." },
   contact: { title: "Contact and Discovery Calls", summary: "Tell us about your business and what you want to achieve before booking a strategic discovery call." },
-  "brand-pack": { title: "Brand Pack", summary: "Download Gavin Ferns Consulting logos, Instagram graphics and Open Graph cards in light and dark." },
+  "brand-pack": { title: "Brand Pack", summary: "Download the GFC identity, scalable logos, social templates, presentation and proposal branding, and usage guidelines." },
   "privacy-policy": { title: "Privacy Policy", summary: "How Gavin Ferns Business Consulting and Coaching handles information when you visit the site or get in touch." },
 };
 
@@ -318,3 +318,78 @@ export const caseStudies = [
 ];
 
 export const caseStudyPaths = caseStudies.map(({ slug }) => `case-studies/${slug}`);
+
+// Academic claims supplied by Gavin; formal records remain a launch verification item.
+export const positioning = {
+  summary: "I help ambitious business owners identify growth opportunities, improve profitability, reduce operating costs and make better strategic decisions.",
+  background: "Combining an Executive MBA from Imperial College Business School, specialising in Innovation, with over 20 years of senior leadership, programme delivery and practical technology experience, I help businesses turn strategy into action.",
+  biography: [
+    "I'm Gavin Ferns, a business coach, strategic consultant and innovation specialist with an Executive MBA from Imperial College Business School and over 20 years of professional experience.",
+    "My Executive Master of Business Administration (EMBA) majored in Innovation and incorporated modules in Artificial Intelligence, Machine Learning, Entrepreneurship and Venture Capital.",
+    "Combined with my experience managing complex multimillion-pound programmes and developing technology solutions, this allows me to approach business challenges from both a strategic and practical perspective.",
+    "I help business owners identify opportunities, improve profitability, reduce inefficiencies and develop sustainable growth strategies. My focus is on helping owners turn better decisions into practical action.",
+  ],
+};
+export const credibility = [
+  { title: "Imperial College", detail: "Executive MBA · Business School" },
+  { title: "Innovation", detail: "Major, with AI & Machine Learning modules" },
+  { title: "Entrepreneurship", detail: "& Venture Capital modules" },
+  { title: "20+ years", detail: "Professional leadership and delivery experience" },
+  { title: "£200m", detail: "Hitachi Rail portfolio management experience" },
+];
+export const academicCapabilities = [
+  { title: "Innovation", description: "Develop commercially viable products, services and business models, connecting strategic choices with practical technology development." },
+  { title: "Artificial Intelligence", description: "Identify practical AI opportunities that improve productivity and business performance, informed by hands-on application development." },
+  { title: "Machine Learning", description: "Understand data-driven technologies and assess their commercial applications, data requirements and implementation constraints." },
+  { title: "Entrepreneurship", description: "Evaluate opportunities, validate demand and develop scalable ventures, drawing on experience developing digital products and business propositions." },
+  { title: "Venture Capital", description: "Assess investment readiness, commercial viability, funding considerations and investor expectations before committing resources." },
+];
+export const experiencePillars = [
+  { title: "Senior professional experience", description: "Over 20 years in leadership, programme and project management, stakeholder management and organisational transformation across rail, construction and infrastructure. Corporate employment roles included managing a £200 million Hitachi Rail portfolio and leading Network Rail’s £102 million Borough Viaduct project. These are project and portfolio values, not consulting revenue." },
+  { title: "Entrepreneurial experience", description: "Developing business propositions, digital products, marketing technology and innovative business solutions. Founder-developed ventures provide practical experience of evaluating ideas and building technology; they are distinct from client consulting engagements." },
+  { title: "Practical implementation", description: "Translate strategic recommendations into actionable plans, measurable objectives and operational improvements. Bring commercial strategy, digital transformation, technology and AI development together with leadership coaching and implementation oversight." },
+];
+export const commercialConsiderations = [
+  { title: "Protect the margin", description: "Review pricing strategy, gross profit after direct costs, and contribution after variable costs. More revenue only helps when the work makes a worthwhile contribution." },
+  { title: "Understand customer economics", description: "Compare customer acquisition costs with customer lifetime value on a consistent profit basis. Retention and repeat buying must justify the cost of acquiring and serving customers." },
+  { title: "Make growth workable", description: "Consider operating costs, cash flow, productivity, operational efficiency and business owner dependency. Set responsibilities and capacity before scaling demand." },
+];
+export const innovationCapabilities = "Innovation and product development, startup strategy, entrepreneurship and investment readiness can be included in a bespoke engagement alongside marketing technology, AI and automation, digital transformation, rail and infrastructure, and programme management and assurance.";
+
+export const brandPalette = [
+  { name: "Hexagon one", hex: "#2772EC" }, { name: "Hexagon two", hex: "#1E5FD2" }, { name: "Hexagon three", hex: "#174AAA" },
+  { name: "Navy", hex: "#07172D" }, { name: "Ink", hex: "#0C1B32" }, { name: "Action blue", hex: "#1559CC" },
+  { name: "Sky", hex: "#8BBAFF" }, { name: "Light tint", hex: "#F3F7FC" }, { name: "White", hex: "#FFFFFF" },
+];
+export const brandFormats = [
+  { title: "Primary horizontal logo", file: "logo", width: 1200, height: 360, type: "png", svg: true, note: "Light and dark backgrounds; scalable SVG and PNG." },
+  { title: "Transparent horizontal logo", file: "logo", width: 1200, height: 360, type: "png", transparent: true },
+  { title: "Instagram profile", file: "instagram-profile", width: 1080, height: 1080, type: "png", note: "Centred for circular cropping." },
+  { title: "Instagram square feed template", file: "instagram-square", width: 1080, height: 1080, type: "png" },
+  { title: "Instagram portrait feed template", file: "instagram-portrait", width: 1080, height: 1350, type: "png" },
+  { title: "Instagram Story template", file: "instagram-story", width: 1080, height: 1920, type: "png" },
+  { title: "Instagram Reel cover template", file: "instagram-reel", width: 1080, height: 1920, type: "png" },
+  { title: "Facebook profile", file: "facebook-profile", width: 1080, height: 1080, type: "png" },
+  { title: "Facebook cover", file: "facebook-cover", width: 1640, height: 624, type: "png", svg: true },
+  { title: "LinkedIn profile", file: "linkedin-profile", width: 1080, height: 1080, type: "png" },
+  { title: "LinkedIn banner", file: "linkedin-banner", width: 1584, height: 396, type: "png", svg: true },
+  { title: "YouTube profile", file: "youtube-profile", width: 1080, height: 1080, type: "png" },
+  { title: "YouTube channel artwork", file: "youtube-channel", width: 2560, height: 1440, type: "png", svg: true },
+  { title: "Open Graph sharing card", file: "open-graph", width: 1200, height: 630, type: "jpg" },
+  { title: "Presentation cover template", file: "presentation-cover", width: 1920, height: 1080, type: "png", svg: true },
+  { title: "Proposal cover template", file: "proposal-cover", width: 1920, height: 1080, type: "png", svg: true },
+  { title: "Proposal letterhead", file: "proposal-letterhead", width: 1240, height: 1754, type: "png", svg: true },
+] as const;
+export const brandFiles = [
+  { title: "GFC standalone icon · SVG", file: "/brand-pack/gfc-icon.svg", note: "Approved horizontal three-hexagon mark." },
+  { title: "GFC transparent icon · PNG", file: "/brand-pack/gfc-icon-transparent.png", note: "1200 px wide with a transparent background." },
+  { title: "GFC high-resolution icon · PNG", file: "/brand-pack/gfc-icon-high-resolution.png", note: "4800 px wide with a transparent background." },
+  ...["light", "dark"].map((theme) => ({ title: `${theme} transparent logo · SVG`, file: `/brand-pack/logo-${theme}-transparent.svg`, note: "Scalable full logo with editable text." })),
+  ...["light", "dark"].map((theme) => ({ title: `${theme} high-resolution logo · PNG`, file: `/brand-pack/logo-${theme}-transparent-high-resolution.png`, note: "4800 × 1440 px, transparent." })),
+  ...["white-reversed", "single-colour"].flatMap((variant) => ["svg", "png"].map((type) => ({ title: `${variant} icon · ${type.toUpperCase()}`, file: `/brand-pack/gfc-${variant}.${type}`, note: variant === "white-reversed" ? "White with transparent letter cutouts for dark backgrounds." : "Navy for single-colour reproduction on light backgrounds." }))),
+  ...["white-reversed", "single-colour"].flatMap((variant) => ["svg", "png"].map((type) => ({ title: `${variant} full logo · ${type.toUpperCase()}`, file: `/brand-pack/logo-${variant}.${type}`, note: "Transparent horizontal logo with the full consulting name." }))),
+  { title: "Website favicon", file: "/brand-pack/favicon.ico", note: "16, 32 and 48 px ICO." },
+  { title: "Apple touch icon", file: "/brand-pack/apple-touch-icon.png", note: "180 × 180 px PNG." },
+  { title: "Email signature · HTML", file: "/brand-pack/email-signature.html", note: "Website link and hosted logo; no unverified email address." },
+  { title: "Email signature logo · PNG", file: "/brand-pack/email-signature-logo.png", note: "600 × 180 px transparent logo." },
+];

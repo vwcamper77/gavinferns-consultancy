@@ -18,8 +18,10 @@ test("all core pages and case studies render and the production preview is noind
   await page.goto(baseURL);
   assert.match(await page.locator("h1").innerText(), /Build a more profitable business\.\s*Not just a bigger one\./);
   assert.deepEqual(await page.locator(".offers-grid h3").allTextContents(), offers.map(({ name }) => name));
-  assert.match(await page.locator('meta[name="description"]').getAttribute("content"), /Consulting engagements from £3,000\./);
-  assert.equal((await page.request.get(new URL("/cgf-logo.svg", baseURL).href)).status(), 200);
+  assert.match(await page.locator(".hero-background").innerText(), /Executive MBA · Imperial College Business School/);
+  assert.match(await page.locator(".proof-band").innerText(), /Venture Capital modules/);
+  assert.match(await page.locator('meta[name="description"]').getAttribute("content"), /Private consulting engagements from £3,000\./);
+  assert.equal((await page.request.get(new URL("/gfc-logo.svg", baseURL).href)).status(), 200);
   assert.equal((await page.request.get(new URL("/social-card.jpg", baseURL).href)).status(), 200);
   const links = new Set();
   for (const slug of ["", ...routes, ...caseStudyPaths]) {
@@ -61,7 +63,7 @@ test("mobile menu and discovery brief support a private handoff", async (context
   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
   if (acquisitionEnabled) await page.getByRole("button", { name: "Decline optional tracking" }).click();
   await page.locator(".mobile-nav summary").click();
-  await page.getByRole("navigation", { name: "Mobile" }).getByRole("link", { name: "Start your discovery brief" }).click();
+  await page.getByRole("navigation", { name: "Mobile" }).getByRole("link", { name: "Start Your Discovery Brief" }).click();
   await page.waitForURL("**" + discoveryPath);
   if (acquisitionEnabled) await page.goto(new URL("/contact", baseURL).href);
   const calendarLink = page.locator('a[href^="https://calendly.com/"]');
@@ -107,7 +109,7 @@ test("mobile menu and discovery brief support a private handoff", async (context
   assert.equal(await page.getByLabel("Your discovery brief").count(), 0);
   assert.equal(await calendarLink.count(), 0);
   await page.getByRole("button", { name: "Prepare my brief" }).click();
-  await page.locator(".summary").getByText("Consulting engagements from £3,000.", { exact: false }).waitFor();
+  await page.locator(".summary").getByText("Private consulting engagements from £3,000.", { exact: false }).waitFor();
   assert.equal(await handoff.count(), 0);
   await page.getByRole("combobox", { name: "Investment budget" }).selectOption("To be agreed");
   await page.getByRole("button", { name: "Prepare my brief" }).click();
@@ -144,7 +146,7 @@ test("calculator compounds the three inputs and stays usable across viewport siz
     await page.setViewportSize({ width, height: 1000 });
     await page.goto(baseURL);
     if (acquisitionEnabled && width === 320) await page.getByRole("button", { name: "Decline optional tracking" }).click();
-    await page.locator(".hero-actions").getByRole("link", { name: "Calculate Your Growth Potential" }).click();
+    await page.locator(".hero-actions").getByRole("link", { name: "Calculate Your Business Growth Potential" }).click();
     assert.equal(await page.getByRole("link", { name: "Discuss your growth opportunities" }).getAttribute("href"), discoveryPath);
     const results = page.getByRole("status");
     await results.getByText("£332,750", { exact: true }).first().waitFor();
@@ -168,15 +170,15 @@ test("premium programmes model profit and lead to the qualification brief", asyn
   if (acquisitionEnabled) await page.getByRole("button", { name: "Decline optional tracking" }).click();
   const main = page.locator("main");
   await main.getByText("How much does consulting cost?", { exact: true }).click();
-  await main.locator(".programme-faqs").getByText("Consulting engagements from £3,000.", { exact: false }).waitFor();
-  assert.match(await page.locator('meta[name="description"]').getAttribute("content"), /Consulting engagements from £3,000\./);
+  await main.locator(".programme-faqs").getByText("Private consulting engagements from £3,000.", { exact: false }).waitFor();
+  assert.match(await page.locator('meta[name="description"]').getAttribute("content"), /Private consulting engagements from £3,000\./);
   const offers = main.locator(".offer-card");
   assert.deepEqual(await offers.locator("h3").allTextContents(), [
     "Business Growth & Profitability Review",
     "90-Day Profitability & Growth Programme",
     "Fractional Business & Transformation Partner",
   ]);
-  const ctas = await main.getByRole("link", { name: "Start your discovery brief" }).evaluateAll(
+  const ctas = await main.getByRole("link", { name: "Start Your Discovery Brief" }).evaluateAll(
     (links) => links.map((link) => link.getAttribute("href")),
   );
   assert.deepEqual(ctas, Array(5).fill(discoveryPath));
@@ -191,6 +193,16 @@ test("premium programmes model profit and lead to the qualification brief", asyn
   await calculator.getByRole("spinbutton", { name: "Consulting investment (£)" }).fill("5000");
   await results.getByText("100%", { exact: true }).waitFor();
   await results.getByText("6 months", { exact: true }).waitFor();
+  await calculator.getByRole("spinbutton", { name: "Current gross profit margin (%)" }).fill("40");
+  await calculator.getByRole("spinbutton", { name: "Current annual operating costs (£)" }).fill("150000");
+  await calculator.getByRole("spinbutton", { name: "Estimated one-off implementation expenditure (£)" }).fill("5000");
+  await results.getByText("0%", { exact: true }).waitFor();
+  await results.getByText("12 months", { exact: true }).waitFor();
+  assert.match(await results.innerText(), /Current annual operating profit\s*£50,000/);
+  assert.match(await results.innerText(), /Annual operating profit at 42% margin\s*£60,000/);
+  await calculator.getByRole("spinbutton", { name: "Estimated one-off implementation expenditure (£)" }).fill("-1");
+  await results.getByText("Enter a positive turnover", { exact: false }).waitFor();
+  await calculator.getByRole("spinbutton", { name: "Estimated one-off implementation expenditure (£)" }).fill("0");
   await calculator.getByRole("spinbutton", { name: "Potential margin improvement (percentage points)" }).fill("0");
   await results.getByText("No payback at this margin").waitFor();
   await calculator.getByRole("spinbutton", { name: "Annual turnover (£)" }).fill("-1");
@@ -200,7 +212,7 @@ test("premium programmes model profit and lead to the qualification brief", asyn
     await page.setViewportSize({ width, height: 850 });
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
   }
-  await offers.first().getByRole("link", { name: "Start your discovery brief" }).click();
+  await offers.first().getByRole("link", { name: "Start Your Discovery Brief" }).click();
   await page.waitForURL("**" + discoveryPath);
   assert.equal(await page.getByRole("link", { name: "Continue to Calendly" }).count(), 0);
   if (acquisitionEnabled) await page.getByRole("heading", { name: "Apply for private consulting" }).waitFor();
@@ -217,7 +229,7 @@ test("the footer brand pack exposes working ZIP, SVG and image downloads", async
   await page.getByRole("heading", { name: "Brand Pack", exact: true }).waitFor();
   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
   const downloads = page.locator("main a[download]");
-  assert.equal(await downloads.count(), 14);
+  assert.ok(await downloads.count() >= 60);
   const links = await downloads.evaluateAll((items) => items.map((item) => item.href));
   for (const link of links) {
     const response = await page.request.get(link);
