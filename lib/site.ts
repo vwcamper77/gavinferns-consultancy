@@ -110,10 +110,181 @@ export const services = [
 export const pages = {
   about: { title: "About Gavin", summary: "Business coach, strategic consultant and programme transformation leader." },
   "premium-programmes": { title: "Premium Programmes", summary: "Structured engagements for leaders making important decisions and delivering change." },
-  "case-studies": { title: "Case Studies", summary: "Selected examples from Gavin’s professional programme and portfolio experience." },
+  "case-studies": { title: "Case Studies", summary: "Client work in business growth, digital learning, AI and location development, alongside Gavin’s rail programme experience." },
   insights: { title: "Insights & Video Resources", summary: "Practical questions for leaders working through growth and transformation." },
   contact: { title: "Contact", summary: "Book a strategic discovery call to discuss what you want to achieve and whether there’s a fit." },
   "privacy-policy": { title: "Privacy Policy", summary: "How Gavin Ferns Coaching & Consulting handles information when you visit the site or get in touch." },
 };
 
 export const routes = [...Object.keys(pages), ...services.map(({ slug }) => slug)];
+
+
+
+export const caseStudies = [
+  {
+    "num": "01",
+    "slug": "best-behaviour-dog-training",
+    "category": "DIGITAL TRANSFORMATION & BUSINESS DEVELOPMENT",
+    "client": "Best Behaviour School for Dogs",
+    "title": "Taking dog-training expertise online",
+    "intro": "Building an online learning platform around an established specialist service.",
+    "context": "An established dog-training business wanted to make its expertise available beyond in-person sessions. The challenge was to turn specialist knowledge into a structured digital learning offer, supported by a clear understanding of the people most likely to use it.",
+    "work": [
+      [
+        "Define the audience",
+        "Used design thinking to develop four customer personas and explore their needs, motivations and barriers to buying online training."
+      ],
+      [
+        "Build the learning platform",
+        "Built the learning management system to provide a digital home for the business's training content and online learning offer."
+      ],
+      [
+        "Connect product and marketing",
+        "Developed the commercial and marketing approach around the platform, including customer journeys, email nurture and course-launch planning."
+      ]
+    ],
+    "deliverables": [
+      [
+        "Online learning platform",
+        "A learning management system built for the dog-training business."
+      ],
+      [
+        "Customer insight",
+        "Four personas to guide the offer, messaging and marketing activity."
+      ],
+      [
+        "Launch direction",
+        "A structured approach to acquiring and nurturing prospective learners."
+      ]
+    ],
+    "result": "The engagement translated a specialist service into a digital learning platform, with audience research and a marketing framework to support its development.",
+    "takeaway": "Relevant to expert-led businesses looking to package their knowledge into an online learning offer.",
+    "stage": "Platform development and commercial planning",
+    "name": "Best Behaviour School for Dogs"
+  },
+  {
+    "num": "02",
+    "slug": "sensitive-project-ai",
+    "category": "AI APPLICATIONS & DIGITAL TRANSFORMATION",
+    "client": "Engineering consultancy | Sensitive project work",
+    "title": "Practical AI for sensitive project data",
+    "intro": "Scoping and developing a local AI tool for querying contracts and supporting policies.",
+    "context": "Project teams needed to navigate a lengthy contract and numerous supporting documents to understand obligations, policy requirements and terms flowing down to subconsultants. The solution needed to support useful document queries while addressing the sensitivity of the material.",
+    "work": [
+      [
+        "Scope a practical use case",
+        "Defined the questions delivery teams needed to answer, focusing on obligations, policy alignment, compliance and subconsultant terms."
+      ],
+      [
+        "Develop a local approach",
+        "Helped design and develop an Ollama-based tool with a browser interface, document ingestion and retrieval of relevant source material."
+      ],
+      [
+        "Connect technology and judgement",
+        "Applied commercial and project experience to the query workflow, with reference-backed answers intended to support human review."
+      ]
+    ],
+    "deliverables": [
+      [
+        "Defined requirements",
+        "A focused contract-and-policy query use case grounded in delivery needs."
+      ],
+      [
+        "Technical prototype",
+        "Initial local AI capability and document-query workflow."
+      ],
+      [
+        "Development direction",
+        "A foundation for adding further contracts and policies and progressing towards production."
+      ]
+    ],
+    "result": "The work established an initial technical prototype and a defined route towards an in-house AI capability. It demonstrated how a specific commercial problem could be translated into a practical development brief.",
+    "takeaway": "Relevant to organisations exploring internal AI tools for commercially sensitive documents.",
+    "stage": "Initial prototype; production rollout is a subsequent stage",
+    "name": "AI for sensitive projects"
+  },
+  {
+    "num": "03",
+    "slug": "coffee-shop-location-development",
+    "category": "START-UP STRATEGY & FINANCIAL FEASIBILITY",
+    "client": "Marina | Coffee shop development",
+    "title": "Testing the location. Understanding the numbers.",
+    "intro": "Bringing location research and financial modelling together for a proposed coffee business.",
+    "context": "A prospective coffee shop owner needed to compare possible trading locations and understand the financial implications before committing to premises or equipment. A busy location alone would not establish a viable business: sales assumptions had to be considered alongside staffing, rent and operating costs.",
+    "work": [
+      [
+        "Compare location options",
+        "Explored station retail, university and park-kiosk opportunities. Location work included Luton and Bellingham stations and routes to potential landlords."
+      ],
+      [
+        "Develop the financial model",
+        "Worked on a coffee-shop model covering product pricing, customer buying assumptions, revenue, cost of goods, staff and overheads."
+      ],
+      [
+        "Connect the operating decisions",
+        "Considered premises and equipment options alongside setup costs, capital requirements and monthly and annual financial forecasts."
+      ]
+    ],
+    "deliverables": [
+      [
+        "Location research",
+        "A comparison framework for different types of trading opportunity."
+      ],
+      [
+        "Coffee shop financial model",
+        "Linked assumptions, pricing, revenue and cost schedules, financial statements and a dashboard."
+      ],
+      [
+        "Decision support",
+        "A way to explore how the proposed operating model affects financial viability."
+      ]
+    ],
+    "result": "The engagement produced location-development work and a financial model to support an informed investment decision. The model made the relationship between sales assumptions and operating costs visible before a commitment to premises.",
+    "takeaway": "Relevant to founders evaluating a first location, kiosk, concession or other premises-led business.",
+    "stage": "Location development and feasibility; forecasts are planning scenarios",
+    "name": "Coffee shop location development"
+  },
+  {
+    "num": "04",
+    "slug": "mindfulness-business-expansion",
+    "category": "BUSINESS GROWTH & EXPANSION PLANNING",
+    "client": "Darren | Mindfulness business",
+    "title": "Planning a sustainable next stage of growth",
+    "intro": "Structuring an expansion opportunity around financial feasibility, premises and funding.",
+    "context": "An established mindfulness business was considering expansion into a professional city location. The question was how to connect the ambition for a larger business with the capacity, room utilisation, funding and transition plan needed to make it practical.",
+    "work": [
+      [
+        "Define the growth question",
+        "Worked with the owner on an expansion and funding brief, including an ambition to explore a route towards £500,000 annual turnover."
+      ],
+      [
+        "Structure the feasibility work",
+        "Set out the financial review, lease-versus-purchase assessment and room-utilisation modelling needed to test the expansion case."
+      ],
+      [
+        "Create a phased pathway",
+        "Prepared a proposal sequencing financial feasibility, investor or loan preparation, and an expansion roadmap, with a standalone first phase."
+      ]
+    ],
+    "deliverables": [
+      [
+        "Expansion proposal",
+        "A structured brief connecting commercial ambition with premises and capacity."
+      ],
+      [
+        "Feasibility scope",
+        "Defined analysis for funding options, utilisation and the financial implications of expansion."
+      ],
+      [
+        "Phased roadmap",
+        "A clear sequence for testing feasibility before progressing to funding and implementation."
+      ]
+    ],
+    "result": "The engagement turned a broad expansion ambition into a structured proposal and decision pathway. It clarified the analysis and milestones needed before committing to a larger premises and funding strategy.",
+    "takeaway": "Relevant to established service businesses considering more space, additional capacity or a new location.",
+    "stage": "Expansion advisory and proposal; £500,000 is a target, not an achieved result",
+    "name": "Mindfulness business expansion"
+  }
+];
+
+export const caseStudyPaths = caseStudies.map(({ slug }) => `case-studies/${slug}`);

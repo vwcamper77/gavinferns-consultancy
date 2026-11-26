@@ -162,3 +162,21 @@ textarea { resize: vertical; }
   background: linear-gradient(135deg, transparent calc(50% - .6px), currentColor calc(50% - .6px), currentColor calc(50% + .6px), transparent calc(50% + .6px));
   vertical-align: .06em;
 }
+
+
+/* Client case studies */
+.case-study-card { display: flex; flex-direction: column; align-items: flex-start; gap: .85rem; padding: clamp(1.25rem, 3vw, 2rem); border: 1px solid var(--line); border-top: 4px solid var(--blue); border-radius: .55rem; background: #fff; }
+.case-study-card h2 { font-size: clamp(1.4rem, 3vw, 1.8rem); }
+.case-study-card h2 a { text-decoration: none; }
+.case-study-card h2 a:hover { color: var(--blue); text-decoration: underline; }
+.case-study-card p:not(.eyebrow) { color: var(--muted); }
+.case-study-card .actions { margin-top: auto; padding-top: .6rem; }
+.case-study-card .actions .text-link { min-height: 44px; display: inline-flex; align-items: center; }
+.case-study-experience { margin-top: clamp(3rem, 6vw, 5rem); padding-top: 2.5rem; border-top: 1px solid var(--line); }
+.case-study-body { display: grid; gap: 2.5rem; }
+.case-study-body h2 { margin-bottom: 1rem; }
+.case-study-list { padding: 0; margin: 0; list-style: none; display: grid; gap: 1.2rem; }
+.case-study-list h3 { margin-bottom: .4rem; }
+.case-study-result { padding: clamp(1.25rem, 3vw, 2rem); background: var(--tint); border-left: 4px solid var(--blue); }
+.case-study-result p + p { margin-top: .9rem; }
+.case-study-download { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
