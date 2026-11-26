@@ -17,12 +17,14 @@
   },
   "dependencies": {
     "next": "^16.4.6",
+    "pg": "^8.23.1",
     "react": "^19.3.1",
     "react-dom": "^19.3.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.5",
     "@types/node": "^24.19.4",
+    "@types/pg": "^8.23.1",
     "@types/react": "^19.3.3",
     "@types/react-dom": "^19.3.0",
     "eslint": "^9.39.5",

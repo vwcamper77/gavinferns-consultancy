@@ -13,9 +13,11 @@ export function MobileNav({ links }: { links: { href: string; label: string }[] 
   }}>
     <summary>Menu</summary>
     <nav aria-label="Mobile">
-      {links.map(({ href, label }) => <Link key={href} href={href} onClick={() => {
-        if (menu.current) menu.current.open = false;
-      }}>{label}</Link>)}
+      {links.map(({ href, label }) => {
+        function close() { if (menu.current) menu.current.open = false; }
+        return href === "/apply" ? <a key={href} href={href} onClick={close}>{label}</a>
+          : <Link key={href} href={href} onClick={close}>{label}</Link>;
+      })}
     </nav>
   </details>;
 }
