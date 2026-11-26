@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Callout, Framework, OfferCard, ProjectCards, SectionTitle, VatDisclosure } from "@/components/site";
+import { CaseStudyCards } from "@/components/case-studies";
 import { DiscoveryForm } from "@/components/discovery-form";
 import { discoveryLabel, offers, pages, professionalEmail, routes, services, site, youtube } from "@/lib/site";
 
@@ -121,9 +122,13 @@ export default async function DetailPage({ params }: PageProps) {
       </div>
     </section>}
     {slug === "case-studies" && <section className="section container">
+      <SectionTitle eyebrow="Gavin Ferns Business Consulting" title="Client case studies">Explore the challenge, the work delivered and the value created. Each case study has a full page and a downloadable PDF.</SectionTitle>
+      <CaseStudyCards />
+      <div className="case-study-experience">
       <SectionTitle title="Rail portfolio and project delivery">These examples are from Gavin’s professional delivery experience. The figures reflect the value of the portfolio and project.</SectionTitle>
       <ProjectCards />
       <Link className="text-link section-link" href="/rail-infrastructure">Explore Rail & Infrastructure <span className="arrow" aria-hidden="true" /></Link>
+      </div>
     </section>}
     {slug === "insights" && <Insights />}
     {slug === "contact" && <Contact />}
@@ -131,3 +136,4 @@ export default async function DetailPage({ params }: PageProps) {
     {slug !== "contact" && slug !== "privacy-policy" && <Callout />}
   </>;
 }
+
